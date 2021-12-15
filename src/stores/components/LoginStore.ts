@@ -1,7 +1,7 @@
 import { inject, injectable } from "inversify";
 import { action, makeObservable, observable, runInAction } from "mobx";
-import ownTypes from "../ioc/ownTypes";
-import type AuthenticationService from "../services/AuthenticationService";
+import ownTypes from "../../ioc/ownTypes";
+import type AuthenticationService from "../../services/AuthenticationService";
 
 @injectable()
 export default class LoginStore {

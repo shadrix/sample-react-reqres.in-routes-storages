@@ -3,7 +3,7 @@ import React from 'react'
 import { Button, Col, Container, Form, Row, Spinner } from 'react-bootstrap'
 import { useInjection } from '../../ioc/ioc.react';
 import ownTypes from '../../ioc/ownTypes';
-import LoginStore from '../../stores/LoginStore';
+import LoginStore from '../../stores/components/LoginStore';
 import { useTranslation } from 'react-i18next';
 
 const Login = observer(() => {

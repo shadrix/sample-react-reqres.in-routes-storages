@@ -1,9 +1,9 @@
 import { inject, injectable } from "inversify";
 import { action, makeObservable, observable, runInAction } from "mobx";
-import ownTypes from "../ioc/ownTypes";
-import type { User } from "../models/User";
-import type UserService from "../services/UserService";
-import i18n from "../locales/config"
+import ownTypes from "../../ioc/ownTypes";
+import type { User } from "../../models/User";
+import type UserService from "../../services/UserService";
+import i18n from "../../locales/config"
 
 @injectable()
 export default class UserStore {

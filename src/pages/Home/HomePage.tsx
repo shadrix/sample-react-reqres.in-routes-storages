@@ -3,7 +3,7 @@ import React, { Suspense } from 'react'
 import { Container, Spinner, Tab, Tabs } from 'react-bootstrap'
 import { useInjection } from '../../ioc/ioc.react'
 import ownTypes from '../../ioc/ownTypes'
-import HomePageStore, { TabsType } from '../../stores/HomePageStore'
+import HomePageStore, { TabsType } from '../../stores/pages/HomePageStore'
 import { useTranslation } from 'react-i18next';
 
 

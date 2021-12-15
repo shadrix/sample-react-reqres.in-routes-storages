@@ -4,7 +4,7 @@ import { Col, Container, Row, Spinner } from 'react-bootstrap'
 import Pagination from '../../components/Pagination'
 import { observer } from 'mobx-react'
 import { useInjection } from '../../ioc/ioc.react'
-import UsersStore from '../../stores/UsersStore'
+import UsersStore from '../../stores/components/UsersStore'
 import ownTypes from '../../ioc/ownTypes'
 
 const Users = observer(() => {
