@@ -1,10 +1,14 @@
 import { observer } from 'mobx-react';
 import React from 'react'
-import { Navbar, Nav, Container, Image } from 'react-bootstrap'
+import { Navbar, Nav, Container, Image, Button } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next';
+import { useInjection } from '../../ioc/ioc.react';
+import ownTypes from '../../ioc/ownTypes';
+import AuthStore from '../../stores/AuthStore';
 
 const Header = observer(() => {
   const { t } = useTranslation(['header']);
+  const store = useInjection<AuthStore>(ownTypes.authStore);
 
   return (
     <Container fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
@@ -15,8 +19,11 @@ const Header = observer(() => {
             </Navbar.Brand>
             <Nav className="me-auto">
               <Nav.Link href="/">{t('home')}</Nav.Link>
-              <Nav.Link href="/profile/me">{t('profile')}</Nav.Link>
+              {store.isAuthorized && <Nav.Link href="/profile/me">{t('profile')}</Nav.Link> }
               <Nav.Link href="/users?page=1">{t('users')}</Nav.Link>
+            </Nav>
+            <Nav>
+               {store.isAuthorized && <Button onClick={()=> store.logout()}  >{t('logout')}</Button> }
             </Nav>
           </Container>
         </Navbar>

@@ -2,6 +2,7 @@ import { inject, injectable } from "inversify";
 import { action, makeObservable, observable, runInAction } from "mobx";
 import ownTypes from "../../ioc/ownTypes";
 import type AuthenticationService from "../../services/AuthenticationService";
+import AuthStore from "../AuthStore";
 
 @injectable()
 export default class LoginStore {
@@ -13,7 +14,8 @@ export default class LoginStore {
     @observable token = '';
 
     constructor(   
-        @inject(ownTypes.authenticationService) private readonly authenticationService: AuthenticationService
+        @inject(ownTypes.authenticationService) private readonly authenticationService: AuthenticationService,
+        @inject(ownTypes.authStore) private readonly authStore: AuthStore
    ) {
        makeObservable(this);
    }
@@ -28,6 +30,7 @@ export default class LoginStore {
             runInAction(()=> {           
                  this.token = result.token;
             });
+            this.authStore.updateAuthorizedState();
             
           } catch (e) {
             if (e instanceof Error) {

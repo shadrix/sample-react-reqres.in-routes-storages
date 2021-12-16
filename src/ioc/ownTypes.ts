@@ -2,6 +2,7 @@ export default {
     httpService: Symbol("httpService"),
     userService: Symbol("userService"),
     authenticationService: Symbol("authenticationService"),
+    localStorageService: Symbol("localStorageService"),
     homePageStore: Symbol("homePageStore"),
     userStore: Symbol("userStore"),
     usersStore: Symbol("usersStore"),
@@ -9,6 +10,7 @@ export default {
     ownUserProfilePageStore: Symbol("ownUserProfilePageStore"),
     usersPageStore: Symbol("usersPageStore"),
     loginStore: Symbol("loginStore"),
-    userCardStore: Symbol("userCardStore")
+    userCardStore: Symbol("userCardStore"),
+    authStore: Symbol("authStore")
 };
 
