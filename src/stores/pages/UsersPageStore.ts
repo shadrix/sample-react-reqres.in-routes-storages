@@ -30,7 +30,7 @@ export default class UsersPageStore  {
 
     @action
     public changePage = async (page: number) => {
-        history.replace(`/users?page=${page}`)
+        history.replace(`/users?page=${page}`);
         this.currentPage = page;
         this.getByPage(this.currentPage);
     }

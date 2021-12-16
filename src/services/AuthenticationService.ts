@@ -6,6 +6,7 @@ import ownTypes from "../ioc/ownTypes";
 import type { LoginResponse } from "../dtos/LoginResponse";
 import { KeyType } from "./LocalStorageService";
 import type { LocalStorageService } from "./LocalStorageService";
+import history from '../utils/router/history';
 
 export interface AuthenticationService {
     login(email: string, password: string): Promise<LoginResponse>;
@@ -31,5 +32,6 @@ export default class DefaultAuthenticationService implements AuthenticationServi
 
     public logout(): void {
         this.localStorageService.remove(KeyType.Token);
+        history.replace(`/`);
     }
 }
