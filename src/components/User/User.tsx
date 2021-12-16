@@ -4,7 +4,7 @@ import ownTypes from '../../ioc/ownTypes'
 import { observer } from 'mobx-react'
 import { useInjection } from '../../ioc/ioc.react'
 import UserStore from '../../stores/components/UserStore'
-import UserCard from '../../components/UserCard'
+import UserCard from '../UserCard'
 import { useTranslation } from 'react-i18next';
 
 const User = observer(() => {

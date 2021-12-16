@@ -6,11 +6,9 @@ import DefaultHttpService from '../services/HttpService';
 import type { UserService} from '../services/UserService';
 import DefaultUserService from '../services/UserService';
 import HomePageStore from '../stores/pages/HomePageStore';
-import UserPageStore from '../stores/pages/UserPageStore';
 import UsersPageStore from '../stores/pages/UsersPageStore';
-import UserStore from '../stores/components/UserStore'
-import UsersStore from '../stores/components/UsersStore'
-import LoginStore from '../stores/components/LoginStore'
+import { UserProfilePageStore, OwnUserProfilePageStore } from '../stores/pages/profile';
+import { UserStore, UsersStore, LoginStore, UserCardStore }  from '../stores/components'
 import ownTypes from './ownTypes';
 
 export const container = new Container();
@@ -19,9 +17,12 @@ container.bind<UserService>(ownTypes.userService).to(DefaultUserService).inSingl
 container.bind<AuthenticationService>(ownTypes.authenticationService).to(DefaultAuthenticationService).inSingletonScope();
 
 container.bind<HomePageStore>(ownTypes.homePageStore).to(HomePageStore).inTransientScope();
-container.bind<UserPageStore>(ownTypes.userPageStore).to(UserPageStore).inTransientScope();
+container.bind<UserProfilePageStore>(ownTypes.userProfilePageStore).to(UserProfilePageStore).inTransientScope();
+container.bind<OwnUserProfilePageStore>(ownTypes.ownUserProfilePageStore).to(OwnUserProfilePageStore).inTransientScope();
 container.bind<UsersPageStore>(ownTypes.usersPageStore).to(UsersPageStore).inTransientScope();
 
 container.bind<UserStore>(ownTypes.userStore).to(UserStore).inTransientScope();
 container.bind<UsersStore>(ownTypes.usersStore).to(UsersStore).inTransientScope();
 container.bind<LoginStore>(ownTypes.loginStore).to(LoginStore).inTransientScope(); 
+container.bind<UserCardStore>(ownTypes.userCardStore).to(UserCardStore).inTransientScope(); 
+

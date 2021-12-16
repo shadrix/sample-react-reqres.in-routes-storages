@@ -3,6 +3,8 @@ import app from './en/app.json';
 import homePage from './en/homePage.json';
 import login from './en/login.json';
 import user from './en/user.json';
+import header from './en/user.json';
+import profile from './en/profile.json';
 import { initReactI18next } from 'react-i18next';
 
 export const resources = {
@@ -10,13 +12,15 @@ export const resources = {
     app,
     homePage,
     login,
-    user
+    user,
+    header,
+    profile
   },
 } as const;
 
 i18n.use(initReactI18next).init({
   lng: 'en',
-  ns: ['app','homePage', 'login', 'user'],
+  ns: ['app','homePage', 'login', 'user', 'header', 'profile'],
   interpolation: {
     escapeValue: false, // not needed for react as it escapes by default
   },

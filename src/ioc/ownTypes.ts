@@ -5,8 +5,10 @@ export default {
     homePageStore: Symbol("homePageStore"),
     userStore: Symbol("userStore"),
     usersStore: Symbol("usersStore"),
-    userPageStore: Symbol("userPageStore"),
+    userProfilePageStore: Symbol("userProfilePageStore"),
+    ownUserProfilePageStore: Symbol("ownUserProfilePageStore"),
     usersPageStore: Symbol("usersPageStore"),
-    loginStore: Symbol("loginStore")
+    loginStore: Symbol("loginStore"),
+    userCardStore: Symbol("userCardStore")
 };
 

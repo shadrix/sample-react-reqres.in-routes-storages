@@ -1,0 +1,9 @@
+{
+    "user_info": {
+        "email": "email",
+        "first_name": "first name",
+        "last_name":"last name"
+    },
+    "user": "User info",
+    "own_user": "My user info"
+}

@@ -1,8 +1,13 @@
+import { observer } from 'mobx-react';
 import React from 'react'
 import { Card } from 'react-bootstrap'
+import { useInjection } from '../../ioc/ioc.react';
+import ownTypes from '../../ioc/ownTypes';
+import { UserCardStore } from '../../stores/components';
 
 interface Props {
   user: {
+    id: number,
     email: string,
     first_name: string,
     last_name: string,
@@ -10,15 +15,17 @@ interface Props {
   } | null
 }
 
-const UserCard = (props: Props) => {
+const UserCard = observer((props: Props) => {
+  const store = useInjection<UserCardStore>(ownTypes.userCardStore);
+  
   if (!props.user) {
     return null
   }
-  const { email, first_name, last_name, avatar } = props.user
+  const { id, email, first_name, last_name, avatar } = props.user
 
   return (
     <Card>
-      <Card.Img variant="top" src={avatar} />
+      <Card.Img variant="top" src={avatar} onClick={()=> store.navigate(id)} />
       <Card.Body>
         <Card.Title>{email}</Card.Title>
         <Card.Text>
@@ -27,6 +34,6 @@ const UserCard = (props: Props) => {
       </Card.Body>
     </Card>
   )
-}
+});
 
 export default UserCard

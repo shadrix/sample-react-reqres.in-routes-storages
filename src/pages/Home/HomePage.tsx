@@ -7,9 +7,9 @@ import HomePageStore, { TabsType } from '../../stores/pages/HomePageStore'
 import { useTranslation } from 'react-i18next';
 
 
-const User = React.lazy(() => import('../../containers/User'))
-const Users = React.lazy(() => import('../../containers/Users'))
-const Login = React.lazy(() => import('../../containers/Login'))
+const User = React.lazy(() => import('../../components/User'))
+const Users = React.lazy(() => import('../../components/Users'))
+const Login = React.lazy(() => import('../../components/Login'))
 
 const HomePage = observer(() => {
   const store = useInjection<HomePageStore>(ownTypes.homePageStore);
