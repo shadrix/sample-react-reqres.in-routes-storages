@@ -14,7 +14,7 @@ const App = () => {
     <React.StrictMode>
       <IoCProvider container={container}>
           <Header/>
-          <BrowserRouter BrowserRouter>
+          <BrowserRouter>
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="*" element={<Navigate replace to="/" />} />

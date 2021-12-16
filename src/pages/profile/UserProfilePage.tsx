@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next'
 
 const UserProfilePage = observer(() => {
   const store = useInjection<UserProfilePageStore>(ownTypes.userProfilePageStore);
-  const { t } = useTranslation(['profile']);
+  const { t } = useTranslation(['profilePage']);
   const { id }  = useParams();
 
   useEffect(() => {

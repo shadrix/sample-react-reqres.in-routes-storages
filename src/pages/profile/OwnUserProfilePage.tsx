@@ -9,7 +9,7 @@ import { OwnUserProfilePageStore } from '../../stores/pages/profile'
 
 const OwnUserProfilePage = observer(() => {
   const store = useInjection<OwnUserProfilePageStore>(ownTypes.ownUserProfilePageStore);
-  const { t } = useTranslation(['profile']);
+  const { t } = useTranslation(['profilePage']);
   
   useEffect(() => {
     const getUser = async () => {

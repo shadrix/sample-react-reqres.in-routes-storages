@@ -16,6 +16,7 @@ const Header = observer(() => {
             <Nav className="me-auto">
               <Nav.Link href="/">{t('home')}</Nav.Link>
               <Nav.Link href="/profile/me">{t('profile')}</Nav.Link>
+              <Nav.Link href="/users?page=1">{t('users')}</Nav.Link>
             </Nav>
           </Container>
         </Navbar>

@@ -3,6 +3,7 @@ import { action, makeObservable, observable, runInAction } from "mobx";
 import ownTypes from "../../ioc/ownTypes";
 import type { User } from "../../models/User";
 import UserService from "../../services/UserService";
+import history from '../../utils/router/history';
 
 @injectable()
 export default class UsersPageStore  {
@@ -20,13 +21,18 @@ export default class UsersPageStore  {
 
     @action
     public init = async () => {
+        const urlParams = new URLSearchParams(history.location.search);
+        const page = urlParams.get('page');
+        this.currentPage = Number(page);
+
         this.getByPage(this.currentPage);
     }
 
     @action
     public changePage = async (page: number) => {
+        history.replace(`/users?page=${page}`)
         this.currentPage = page;
-        this.getByPage(page);
+        this.getByPage(this.currentPage);
     }
 
     private getByPage = async (page: number) => {

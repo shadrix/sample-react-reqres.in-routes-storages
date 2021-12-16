@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react'
 import React, { useEffect } from 'react'
 import { Container, Row, Col, Spinner } from 'react-bootstrap'
+import { useTranslation } from 'react-i18next'
 import Pagination from '../../components/Pagination'
 import UserCard from '../../components/UserCard'
 import { useInjection } from '../../ioc/ioc.react'
@@ -10,6 +11,7 @@ import UsersPageStore  from '../../stores/pages/UsersPageStore'
 
 const UsersPage = observer(() => {
   const store = useInjection<UsersPageStore>(ownTypes.usersPageStore);
+  const { t } = useTranslation(['usersPage']);
   
   useEffect(() => {
     const getUser = async () => {
@@ -25,6 +27,7 @@ const UsersPage = observer(() => {
           <Spinner animation="border" />
         ) : (
           <>
+            <h1 className='mb-4' >{t('title')}</h1>
             {store.users?.map((user, key) => (
               <Col key={key} sm={6} md={4} lg={3} xl={2} className="mb-2 mt-2">
                 <UserCard user={user} />
