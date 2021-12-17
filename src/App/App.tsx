@@ -13,9 +13,9 @@ import AuthStore from '../stores/AuthStore';
 const App = () => {
   const store = useInjection<AuthStore>(ownTypes.authStore);
 
-  return (<>
+  return (
+          <BrowserRouter>
             <Header/>
-              <BrowserRouter>
                 <Routes>
                   <Route path="/" element={<HomePage />} />
                   <Route path="*" element={<Navigate replace to="/" />} />
@@ -25,8 +25,7 @@ const App = () => {
                     <Route path=":id" element={<UserProfilePage />} />
                   </Route>
                 </Routes>
-              </BrowserRouter>
-            </>
+            </BrowserRouter>
   )
 }
 
