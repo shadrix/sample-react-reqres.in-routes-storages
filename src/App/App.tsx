@@ -9,8 +9,9 @@ import BrowserRouter  from '../utils/router/BrowserRouter';
 import Header from '../components/Header';
 import ownTypes from '../ioc/ownTypes';
 import AuthStore from '../stores/AuthStore';
+import { observer } from 'mobx-react';
 
-const App = () => {
+const App = observer(() => {
   const store = useInjection<AuthStore>(ownTypes.authStore);
 
   return (
@@ -27,6 +28,6 @@ const App = () => {
                 </Routes>
             </BrowserRouter>
   )
-}
+});
 
 export default App

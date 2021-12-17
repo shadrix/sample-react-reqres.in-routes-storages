@@ -1,5 +1,5 @@
 import { inject, injectable } from "inversify";
-import { action, makeObservable, observable, runInAction } from "mobx";
+import { action, makeObservable, observable } from "mobx";
 import { KeyType } from "../../src/services/LocalStorageService";
 import type { LocalStorageService } from "../../src/services/LocalStorageService";
 import type { AuthenticationService } from "../../src/services/AuthenticationService";
@@ -21,9 +21,7 @@ export default class AuthStore {
 
     @action
     public updateAuthorizedState = () : void => {
-        runInAction(()=> {
-            this.isAuthorized = !!this.localStorageService.get<string>(KeyType.Token);
-        });
+      this.isAuthorized = !!this.localStorageService.get<string>(KeyType.Token);
     }
 
     @action
