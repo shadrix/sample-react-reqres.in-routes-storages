@@ -20,9 +20,9 @@ const Header = observer(() => {
               <Image src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-gear-128.png"   width="30" height="30" rounded />
             </Navbar.Brand>
             <Nav className="me-auto">
-              <Button variant="dark" onClick={() => navigate('/')}>{t('home')}</Button>
-              {store.isAuthorized && <Button variant="dark"  onClick={() => navigate('/profile/me')}>{t('profile')}</Button> }
-              <Button variant="dark" onClick={() => navigate('/users?page=1')}>{t('users')}</Button>
+              <Button variant="dark" className='mx-2' onClick={() => navigate('/')}>{t('home')}</Button>
+              {store.isAuthorized && <Button variant="dark" className='mx-2'  onClick={() => navigate('/profile/me')}>{t('profile')}</Button> }
+              <Button variant="dark" className='mx-2'  onClick={() => navigate('/users?page=1')}>{t('users')}</Button>
             </Nav>
             <Nav>
                {store.isAuthorized && <Button onClick={()=> store.logout()}  >{t('logout')}</Button> }
