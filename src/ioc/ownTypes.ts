@@ -10,7 +10,6 @@ export default {
     ownUserProfilePageStore: Symbol("ownUserProfilePageStore"),
     usersPageStore: Symbol("usersPageStore"),
     loginStore: Symbol("loginStore"),
-    userCardStore: Symbol("userCardStore"),
     authStore: Symbol("authStore")
 };
 

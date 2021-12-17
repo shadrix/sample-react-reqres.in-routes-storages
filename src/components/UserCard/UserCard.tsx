@@ -1,9 +1,7 @@
 import { observer } from 'mobx-react';
 import React from 'react'
 import { Card } from 'react-bootstrap'
-import { useInjection } from '../../ioc/ioc.react';
-import ownTypes from '../../ioc/ownTypes';
-import { UserCardStore } from '../../stores/components';
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   user: {
@@ -16,7 +14,7 @@ interface Props {
 }
 
 const UserCard = observer((props: Props) => {
-  const store = useInjection<UserCardStore>(ownTypes.userCardStore);
+  const navigate = useNavigate();
   
   if (!props.user) {
     return null
@@ -25,7 +23,7 @@ const UserCard = observer((props: Props) => {
 
   return (
     <Card>
-      <Card.Img variant="top" src={avatar} onClick={()=> store.navigate(id)} />
+      <Card.Img variant="top" src={avatar} onClick={() => navigate(`/profile/${id}`)} />
       <Card.Body>
         <Card.Title>{email}</Card.Title>
         <Card.Text>

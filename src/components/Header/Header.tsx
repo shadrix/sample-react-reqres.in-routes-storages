@@ -25,7 +25,10 @@ const Header = observer(() => {
               <Button variant="dark" className='mx-2'  onClick={() => navigate('/users?page=1')}>{t('users')}</Button>
             </Nav>
             <Nav>
-               {store.isAuthorized && <Button onClick={()=> store.logout()}  >{t('logout')}</Button> }
+               {store.isAuthorized && <Button onClick={()=> {
+                  store.logout();
+                  navigate('/', { replace: true});
+                }}  >{t('logout')}</Button> }
             </Nav>
           </Container>
         </Navbar>

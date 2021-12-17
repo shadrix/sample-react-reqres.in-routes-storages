@@ -7,18 +7,20 @@ import UserCard from '../../components/UserCard'
 import { useInjection } from '../../ioc/ioc.react'
 import ownTypes from '../../ioc/ownTypes'
 import UsersPageStore  from '../../stores/pages/UsersPageStore'
+import { useNavigate } from "react-router-dom";
 
 
 const UsersPage = observer(() => {
   const store = useInjection<UsersPageStore>(ownTypes.usersPageStore);
   const { t } = useTranslation(['usersPage']);
+  const navigate = useNavigate();
   
   useEffect(() => {
     const getUser = async () => {
       await store.init();
     }
     getUser()
-  }, [store])
+  }, [store, store.currentPage])
 
   return (
     <Container>
@@ -37,7 +39,10 @@ const UsersPage = observer(() => {
         )}
 
       </Row>
-      <Pagination total={store.totalPages} active={store.currentPage} onChange={(val) => { store.changePage(val) }}/>
+      <Pagination total={store.totalPages} active={store.currentPage} onChange={(val) => { 
+          store.changePage(val);
+          navigate(`/users?page=${val}`, {replace: true}); 
+        }}/>
     </Container>
   )
 });

@@ -2,10 +2,9 @@ import React from 'react'
 import { useInjection } from '../ioc/ioc.react'
 import { ProfilePage, UserProfilePage, OwnUserProfilePage } from '../pages/profile';
 import '../locales/config';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes, Navigate, BrowserRouter } from 'react-router-dom';
 import HomePage from '../pages/home';
 import UsersPage from '../pages/users';
-import BrowserRouter  from '../utils/router/BrowserRouter';
 import Header from '../components/Header';
 import ownTypes from '../ioc/ownTypes';
 import AuthStore from '../stores/AuthStore';

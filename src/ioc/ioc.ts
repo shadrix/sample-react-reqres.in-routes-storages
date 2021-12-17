@@ -11,7 +11,7 @@ import HomePageStore from '../stores/pages/HomePageStore';
 import UsersPageStore from '../stores/pages/UsersPageStore';
 import AuthStore from '../stores/AuthStore';
 import { UserProfilePageStore, OwnUserProfilePageStore } from '../stores/pages/profile';
-import { UserStore, UsersStore, LoginStore, UserCardStore }  from '../stores/components'
+import { UserStore, UsersStore, LoginStore }  from '../stores/components'
 import ownTypes from './ownTypes';
 
 export const container = new Container();
@@ -27,8 +27,7 @@ container.bind<UsersPageStore>(ownTypes.usersPageStore).to(UsersPageStore).inTra
 
 container.bind<UserStore>(ownTypes.userStore).to(UserStore).inTransientScope();
 container.bind<UsersStore>(ownTypes.usersStore).to(UsersStore).inTransientScope();
-container.bind<LoginStore>(ownTypes.loginStore).to(LoginStore).inTransientScope(); 
-container.bind<UserCardStore>(ownTypes.userCardStore).to(UserCardStore).inTransientScope(); 
+container.bind<LoginStore>(ownTypes.loginStore).to(LoginStore).inTransientScope();  
 
 
 container.bind<AuthStore>(ownTypes.authStore).to(AuthStore).inSingletonScope();
