@@ -15,7 +15,6 @@ export default class UserCardStore {
 
     @action
     public navigate = async (id: number) => {
-        this.authStore.isAuthorized2++;
         history.push(`/profile/${id}`);
     }
 }

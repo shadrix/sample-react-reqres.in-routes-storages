@@ -27,7 +27,6 @@ const Header = observer(() => {
             <Nav>
                {store.isAuthorized && <Button onClick={()=> store.logout()}  >{t('logout')}</Button> }
             </Nav>
-            {store.isAuthorized2}
           </Container>
         </Navbar>
     </Container>

@@ -9,7 +9,6 @@ import ownTypes from "../ioc/ownTypes";
 export default class AuthStore {
 
     @observable isAuthorized = false;
-    @observable isAuthorized2 = 0;
 
     constructor(   
         @inject(ownTypes.localStorageService) private readonly localStorageService: LocalStorageService,
