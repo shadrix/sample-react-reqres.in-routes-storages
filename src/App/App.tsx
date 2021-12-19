@@ -21,7 +21,9 @@ const App = observer(() => {
                   <Route path="*" element={<Navigate replace to="/" />} />
                   <Route path="users" element={<UsersPage />} />
                   <Route path="profile" element={<ProfilePage />}>
-                    <Route path="me" element={store.isAuthorized ? <OwnUserProfilePage /> : <Navigate replace to="/" />} />
+                    <Route path="me" element={store.isAuthorized 
+                      ? <OwnUserProfilePage />
+                       : <Navigate replace to="/" />} />
                     <Route path=":id" element={<UserProfilePage />} />
                   </Route>
                 </Routes>

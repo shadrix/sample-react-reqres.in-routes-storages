@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import { injectable } from "inversify";
-import { action, makeObservable, observable } from "mobx";
+import { makeAutoObservable } from "mobx";
 
 export enum TabsType {
   User,
@@ -11,14 +11,14 @@ export enum TabsType {
 @injectable()
 export default class HomePageStore {
 
-    @observable currentTab = TabsType[TabsType.User];
+    currentTab = TabsType[TabsType.User];
 
     constructor(   
    ) {
-       makeObservable(this);
+       makeAutoObservable(this);
    }
 
-    @action
+    
     public changeTab = (tab: string | null) : void => {
       this.currentTab = !!tab ? tab : TabsType[TabsType.User];
     }

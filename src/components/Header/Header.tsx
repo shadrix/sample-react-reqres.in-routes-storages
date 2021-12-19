@@ -16,7 +16,7 @@ const Header = observer(() => {
     <Container fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
       <Navbar bg="dark" variant="dark">
           <Container>
-            <Navbar.Brand>
+            <Navbar.Brand onClick={() => navigate('/')}>
               <Image src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-gear-128.png"   width="30" height="30" rounded />
             </Navbar.Brand>
             <Nav className="me-auto">
